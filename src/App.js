@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'; 
+
+import CustomInput from './CustomInput';
+import CustomBtn from './CustomBtn';
 
 function App() {
+  const [text, onTextChange] = useState('');
+
+  const onBtnClick = () => {
+    console.log('here is click ', text);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CustomInput onTextChange={onTextChange} text={text} />
+      <CustomBtn onBtnClick={onBtnClick} />
     </div>
   );
 }

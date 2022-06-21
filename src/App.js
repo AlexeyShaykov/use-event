@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'; 
+import { useCallback, useState, useRef } from 'react'; 
 
 import CustomInput from './CustomInput';
 import CustomBtn from './CustomBtn';
@@ -6,9 +6,12 @@ import CustomBtn from './CustomBtn';
 function App() {
   const [text, onTextChange] = useState('');
 
+  const handlerRef = useRef(null);
+  handlerRef.current = text;
+
   const onBtnClick = useCallback(() => {
-    console.log('here is click ', text);
-  }, [text])
+    console.log('here is click ', handlerRef.current);
+  }, [])
 
 
   return (
